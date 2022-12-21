@@ -1,61 +1,67 @@
 num_list = list(map(int, input().split()))
-num = 0
+# num = 0
+#
+# while num_list[0] != 1:
+#     if num_list[0] > 1:
+#         num_list[0] -= 1
+#         num -= 1
+#     else:
+#         num_list[0] += 1
+#         num += 1
+# print(num)
+# num = 0
+#
+# while num_list[1] != 1:
+#     if num_list[1] > 1:
+#         num_list[1] -= 1
+#         num -= 1
+#     else:
+#         num_list[1] += 1
+#         num += 1
+# print(num)
+# num = 0
+#
+# while num_list[2] != 2:
+#     if num_list[2] > 2:
+#         num_list[2] -= 1
+#         num -= 1
+#     else:
+#         num_list[2] += 1
+#         num += 1
+# print(num)
+# num = 0
+#
+# while num_list[3] != 2:
+#     if num_list[3] > 2:
+#         num_list[3] -= 1
+#         num -= 1
+#     else:
+#         num_list[3] += 1
+#         num += 1
+# print(num)
+# num = 0
+#
+# while num_list[4] != 2:
+#     if num_list[4] > 2:
+#         num_list[4] -= 1
+#         num -= 1
+#     else:
+#         num_list[4] += 1
+#         num += 1
+# print(num)
+# num = 0
+#
+# while num_list[5] != 8:
+#     if num_list[5] > 8:
+#         num_list[5] -= 1
+#         num -= 1
+#     else:
+#         num_list[5] += 1
+#         num += 1
+# print(num)
 
-while num_list[0] != 1:
-    if num_list[0] > 1:
-        num_list[0] -= 1
-        num -= 1
-    else:
-        num_list[0] += 1
-        num += 1
-print(num)
-num = 0
-
-while num_list[1] != 1:
-    if num_list[1] > 1:
-        num_list[1] -= 1
-        num -= 1
-    else:
-        num_list[1] += 1
-        num += 1
-print(num)
-num = 0
-
-while num_list[2] != 2:
-    if num_list[2] > 2:
-        num_list[2] -= 1
-        num -= 1
-    else:
-        num_list[2] += 1
-        num += 1
-print(num)
-num = 0
-
-while num_list[3] != 2:
-    if num_list[3] > 2:
-        num_list[3] -= 1
-        num -= 1
-    else:
-        num_list[3] += 1
-        num += 1
-print(num)
-num = 0
-
-while num_list[4] != 2:
-    if num_list[4] > 2:
-        num_list[4] -= 1
-        num -= 1
-    else:
-        num_list[4] += 1
-        num += 1
-print(num)
-num = 0
-
-while num_list[5] != 8:
-    if num_list[5] > 8:
-        num_list[5] -= 1
-        num -= 1
-    else:
-        num_list[5] += 1
-        num += 1
-print(num)
+chess = [1, 1, 2, 2, 2, 8]
+i = 0
+for num in chess:
+    print(num - num_list[i])
+    i += 1
