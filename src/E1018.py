@@ -1,31 +1,32 @@
 n, m = list(map(int, input().split()))
-board = [['']*n for i in range(m)]
-result = 0
-minN = 0
+# board = [[0]*m for i in range(n)]
+board = [] # 초기화 하지 않아도 됨
+result = []
 
+#board 읽기
 for i in range(n):
-    board[i] = list(input())
+    # board[i] = list(input())
+    board.append(input())
 
-for i in range(8):
-    for j in range(8):
-        if board[i][j] == 'B':
-            result -= 1
-        else:
-            result += 1
-minN = int(abs(result) / 2)
+for a in range(n-7): # -8 -> -7
+    for b in range(m-7):
+        result1 = 0
+        result2 = 0
+        for i in range(a, a+8):
+            for j in range(b, b+8):
+                if (i+j) % 2 == 0: #B로 시작 하는 경우
+                    if board[i][j] != 'B':
+                        result1 += 1
+                    if board[i][j] != 'W':
+                        result2 += 1
+                else: #W로 시작 하는 경우
+                    if board[i][j] != 'W':
+                        result1 += 1
+                    if board[i][j] != 'B':
+                        result2 += 1
 
-for n in range(n-8):
-    for m in range(m-8):
+        #B(result1)또는 W(result2)로 시작 경우중 작은 것 대입
+        result.append(min(result1, result2))
 
-        for i in range(n, n+8):
-            for j in range(m, m+8):
-                if board[i][j] == 'B':
-                    result -= 1
-                else:
-                    result += 1
-        if int(abs(result)/2) < minN:
-            minN = int(abs(result)/2)
-        result = 0
-
-print(minN)
-
+#입력 된 모든 값 중 가장 작은 값 출력
+print(min(result))
