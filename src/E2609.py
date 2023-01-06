@@ -15,6 +15,5 @@ for i in numa:
     for j in numb:
         if i == j:
             print(i)                        #최대공약수
-            print(int(i*(a / i)*(b / i)))   #최소공배수
+            print(int(i*(a / i)*(b / i)))   #최소공배수 #(a*b)/i
             exit()
-
