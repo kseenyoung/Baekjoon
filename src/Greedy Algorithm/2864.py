@@ -16,8 +16,6 @@ for i, n in enumerate(b5):
         break
     minN += 10 ** (len(b5) - i - 1) * int(n)
 
-print(minN, end=" ")
-
 a6 = ['6' if i == '5' else i for i in a5]
 b6 = ['6' if i == '5' else i for i in b5]
 
@@ -32,4 +30,4 @@ for i, n in enumerate(b6):
         break
     maxN += 10 ** (len(b6) - i - 1) * int(n)
 
-print(maxN)
+print(minN, maxN)
