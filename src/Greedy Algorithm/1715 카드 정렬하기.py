@@ -12,13 +12,10 @@ for _ in range(n):
 if len(nums) == 1:
     print(0)
 else:
-    while nums:
-        if len(nums) == 2:
-            print(result + sum(nums))
-            break
+    while len(nums) > 1:
         temp = heapq.heappop(nums) + heapq.heappop(nums)
         heapq.heappush(nums, temp)
         result += temp
 
-
+print(result)
 
