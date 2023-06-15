@@ -1,32 +1,47 @@
 import sys
-import heapq
 input = sys.stdin.readline
 
 n, m, k = map(int, input().split())
-graph = [[] for _ in range(n+1)]
-connected = set()
+answer = [0]*k
+edges = []
 que = []
+connected = set()
 
 for i in range(m):
     a, b = map(int, input().split())
-    graph[a].append((i+1, b))
-    graph[b].append((i+1, a))
-    if i == 0:
-        startNode = a
+    edges.append((i+1, a, b))
 
-que = graph[startNode]
-heapq.heapify(que)
-connected.add(startNode)
+parent = [i for i in range(n+1)]
+def find_parent(x):
+    if x != parent[x]:
+        parent[x] = find_parent(parent[x])
+    return parent[x]
 
-result = 0
-while que:
-    w, b = heapq.heappop(que)
-    if b not in connected:
-        connected.add(b)
-        result += w
+def union(a, b):
+    a = find_parent(a)
+    b = find_parent(b)
+    min_value = min(a, b)
+    max_value = max(a, b)
+    parent[max_value] = min_value
 
-        for w2, a2 in graph[b]:
-            if a2 not in connected:
-                heapq.heappush(que, (w2, a2))
+for i in range(k):
+    result = 0
+    parent = [i for i in range(n + 1)]
 
-print(result)
+    for j in range(m-i):
+        w, a, b = edges[j]
+        if find_parent(a) != find_parent(b):
+            connected.add((a, b))
+            union(a, b)
+            result += w
+
+    if len(connected) != n-1:
+        break
+
+    answer[i] = result
+    edges.pop(0)
+    connected = set()
+    connected.add((edges[0][1], edges[0][2]))
+
+for i in range(k):
+    print(answer[i], end=" ")
