@@ -9,4 +9,4 @@ dp[3] = 0
 for i in range(4, N+1):
     dp[i] = 1 if dp[i-1] == 0 else 0
 
-print('SK' if dp[N] == 0 else 'CY')임
+print('SK' if dp[N] == 0 else 'CY')
